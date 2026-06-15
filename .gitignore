@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+
+# Generated exports
+exports/
+*.pdf
+*.docx
+*.html
+
+# Temporary/cache folders only
+.bmad/cache/
+.bmad/tmp/
+.bmad/sessions/

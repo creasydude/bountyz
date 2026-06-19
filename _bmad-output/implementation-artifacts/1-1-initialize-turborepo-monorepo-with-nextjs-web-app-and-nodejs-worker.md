@@ -1,6 +1,6 @@
 # Story 1.1: Initialize Turborepo monorepo with Next.js web app and Node.js worker
 
-Status: review
+Status: done
 baseline_commit: 3d5488362d707fbc4bca6f3d81a8ec4f4f580255
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->

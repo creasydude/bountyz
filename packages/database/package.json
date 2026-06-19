@@ -1,0 +1,21 @@
+{
+  "name": "@bountyz/database",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "drizzle-orm": "^1.0.0-rc.2",
+    "postgres": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "drizzle-kit": "^1.0.0-rc.2",
+    "typescript": "^5.0.0"
+  }
+}

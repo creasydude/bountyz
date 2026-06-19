@@ -1,0 +1,102 @@
+# generated: 2026-06-19
+# last_updated: 2026-06-19T18:30:00Z
+# project: bountyz
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-06-19
+last_updated: 2026-06-19
+project: bountyz
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Foundation & Infrastructure Setup
+  epic-1: in-progress
+  1-1-initialize-turborepo-monorepo-with-nextjs-web-app-and-nodejs-worker: review
+  1-2-create-shared-packages-for-database-schema-and-shared-types-constants: backlog
+  1-3-set-up-postgresql-with-drizzle-migrations: backlog
+  1-4-configure-bullmq-with-redis-persistence: backlog
+  1-5-establish-socketio-real-time-layer-between-web-and-worker: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Authentication & User Management
+  epic-2: backlog
+  2-1-privy-sign-up-flow-web3-wallet-optional: backlog
+  2-2-privy-login-session-jwt: backlog
+  2-3-user-profile-crud: backlog
+  2-4-secure-key-management-setup: backlog
+  2-5-auth-middleware-for-protected-routes: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Bounty Creation & Discovery
+  epic-3: backlog
+  3-1-create-bounty-form: backlog
+  3-2-bounty-funding-via-relayer: backlog
+  3-3-bounty-list-discovery-page: backlog
+  3-4-bounty-detail-view: backlog
+  3-5-gas-tank-monitoring-alert: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Bounty Lifecycle Management
+  epic-4: backlog
+  4-1-implement-10m-doer-challenge-timer: backlog
+  4-2-implement-6h-failure-cooldown: backlog
+  4-3-implement-48h-auto-approval-workflow: backlog
+  4-4-implement-96h-safety-lock: backlog
+  4-5-bullmq-orchestration-of-bounty-state-machine: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Petroleum UI Experience
+  epic-5: backlog
+  5-1-implement-r3f-scene-as-layout-with-3d-perspective: backlog
+  5-2-develop-iridescent-oil-slick-background-shader: backlog
+  5-3-add-the-dent-interaction-click-induced-background-dip: backlog
+  5-4-add-the-bulge-interaction-hover-induced-card-expansion: backlog
+  5-5-implement-the-sink-liquid-timer-visual: backlog
+  5-6-implement-atmospheric-gas-state-changes: backlog
+  5-7-add-bioluminescent-overlays-for-interactive-elements: backlog
+  5-8-implement-effervescent-chat-bubbles: backlog
+  5-9-implement-the-vault-disputed-state-overlay: backlog
+  5-10-apply-typography-and-color-system-ux-dr14: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Web3 Integration & Relayer
+  epic-6: backlog
+  6-1-eip-712-meta-transaction-service: backlog
+  6-2-privy-linked-wallet-onboarding: backlog
+  6-3-erc-4337-smart-account-deployment: backlog
+  6-4-relayer-gas-tank-monitoring-dashboard: backlog
+  6-5-end-to-end-gas-less-transaction-tests: backlog
+  epic-6-retrospective: optional

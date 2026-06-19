@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UX Validation Report - bountyZ</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 2rem; }
+        h1, h2, h3 { color: #111; }
+        .severity { padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        .critical { background: #fee2e2; color: #991b1b; }
+        .high { background: #ffedd5; color: #9a3412; }
+        .medium { background: #fef9c3; color: #854d0e; }
+        .low { background: #f0fdf4; color: #166534; }
+        .card { border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; background: #fff; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .verdict { font-weight: bold; margin-bottom: 0.5rem; }
+        .finding { margin-bottom: 1rem; border-left: 4px solid #e5e7eb; padding-left: 1rem; }
+        pre { background: #f9fafb; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <h1>Validation Report — bountyZ</h1>
+    <p><strong>DESIGN.md:</strong> <code>_bmad-output/planning-artifacts/ux-designs/ux-bountyz-2026-06-14/DESIGN.md</code></p>
+    <p><strong>EXPERIENCE.md:</strong> <code>_bmad-output/planning-artifacts/ux-designs/ux-bountyz-2026-06-14/EXPERIENCE.md</code></p>
+
+    <h2>Overall Verdict</h2>
+    <div class="card">
+        <p>The bountyZ Petroleum UI is an exceptionally strong atmospheric concept. The "Surface Tension" interaction language is a masterclass in translating Web3 state-machine logic into a visceral user experience. While the core "mechanical" coverage of flows and tokens is strong, the project faces <strong>High-priority risks</strong> in performance (R3F layout thrashing) and immersion (Privy signature popups).</p>
+    </div>
+
+    <h2>Category Verdicts</h2>
+    <div class="summary-grid">
+        <div class="card"><strong>Flow coverage</strong><br>Strong</div>
+        <div class="card"><strong>Token completeness</strong><br>Adequate</div>
+        <div class="card"><strong>Component coverage</strong><br>Strong</div>
+        <div class="card"><strong>State coverage</strong><br>Strong</div>
+        <div class="card"><strong>Motion & Physics</strong><br>High Risk</div>
+        <div class="card"><strong>Web3 Friction</strong><br>Broken Immersion</div>
+    </div>
+
+    <h2>Findings by Severity</h2>
+
+    <div class="finding">
+        <h3><span class="severity high">High</span> (2)</h3>
+        <p><strong>[Motion Specialist]</strong> — Performance: R3F Layout Thrashing (§ Foundation)</p>
+        <p>Unified distortion across DOM elements via &lt;Html /&gt; can cause heavy re-renders. 
+        <br><strong>Fix:</strong> Ensure Html components use CSS 3D transforms to stay outside the main shader loop.</p>
+        
+        <p><strong>[Web3 Friction Hunter]</strong> — Immersion Break: Signature Overlay (§ Key Flows)</p>
+        <p>The inevitable Privy signature popup will break the liquid immersion. 
+        <br><strong>Fix:</strong> Define a "Viscous Modal" that frames the popup to maintain the environmental theme.</p>
+    </div>
+
+    <div class="finding">
+        <h3><span class="severity medium">Medium</span> (3)</h3>
+        <p><strong>[Rubric Walker]</strong> — Token Cross-refs (§ Accessibility Floor)</p>
+        <p>Missing explicit path.to.token references for text-on-background combinations.
+        <br><strong>Fix:</strong> Reference {tokens.colors.accents.biolume-cyan} vs {tokens.colors.base.crude-dark} explicitly.</p>
+
+        <p><strong>[Motion Specialist]</strong> — Near-Death State (§ Interaction Primitives)</p>
+        <p>The "Sinking" timer needs more urgency as it nears zero.
+        <br><strong>Fix:</strong> Shift bar to hazard-amber and add vibration effect when < 60s.</p>
+
+        <p><strong>[Web3 Friction Hunter]</strong> — Low Reservoir State (§ State Patterns)</p>
+        <p>No visual signal for when the Relayer Reservoir is low on gas.
+        <br><strong>Fix:</strong> Add a desaturated "Low Gas" amber tint to the entire slick.</p>
+    </div>
+
+    <h2>Reviewer Files</h2>
+    <ul>
+        <li><code>review-rubric.md</code></li>
+        <li><code>review-motion.md</code></li>
+        <li><code>review-web3.md</code></li>
+    </ul>
+</body>
+</html>

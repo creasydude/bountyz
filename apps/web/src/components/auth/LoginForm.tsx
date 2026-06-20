@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePrivy } from '@privy-io/react-auth';
 import { useRouter } from 'next/navigation';
+
+const REDIRECT_PATH = process.env.NEXT_PUBLIC_AFTER_AUTH_REDIRECT || '/dashboard';
 
 export function LoginForm() {
   const { ready, authenticated, login, connectWallet } = usePrivy();
@@ -11,11 +13,12 @@ export function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState('');
 
-  // Redirect after successful login
-  if (authenticated) {
-    router.push('/dashboard');
-    return null;
-  }
+  // Redirect after successful login using useEffect
+  useEffect(() => {
+    if (authenticated) {
+      router.push(REDIRECT_PATH);
+    }
+  }, [authenticated, router]);
 
   const handleEmailLogin = async () => {
     if (!email || !email.includes('@')) {
@@ -28,7 +31,8 @@ export function LoginForm() {
     try {
       await login();
     } catch (err) {
-      setError('Failed to log in with email');
+      const message = err instanceof Error ? err.message : 'Failed to log in with email';
+      setError(message);
     } finally {
       setIsLoading(false);
     }
@@ -40,7 +44,8 @@ export function LoginForm() {
     try {
       await connectWallet();
     } catch (err) {
-      setError('Failed to connect wallet');
+      const message = err instanceof Error ? err.message : 'Failed to connect wallet';
+      setError(message);
     } finally {
       setIsLoading(false);
     }
@@ -52,7 +57,8 @@ export function LoginForm() {
     try {
       await login({ provider });
     } catch (err) {
-      setError(`Failed to log in with ${provider}`);
+      const message = err instanceof Error ? err.message : `Failed to log in with ${provider}`;
+      setError(message);
     } finally {
       setIsLoading(false);
     }

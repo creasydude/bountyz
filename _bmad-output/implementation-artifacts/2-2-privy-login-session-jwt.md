@@ -94,8 +94,14 @@ MiMo Auto
 - Added email validation and loading states
 - Added accessibility attributes
 - Added link to sign-up page
+- **Code Review Fixes Applied:**
+  - Fixed router.push during render (now uses useEffect)
+  - Added configurable redirect path via environment variable
+  - Added proper error type handling with instanceof check
+  - Applied same fixes to SignUpForm for consistency
 
 ### File List
 
-- apps/web/src/components/auth/LoginForm.tsx (new)
+- apps/web/src/components/auth/LoginForm.tsx (new: fixed router.push, added error handling)
+- apps/web/src/components/auth/SignUpForm.tsx (modified: applied same fixes for consistency)
 - apps/web/src/app/auth/login/page.tsx (new)

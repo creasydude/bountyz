@@ -11,7 +11,11 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "users_privy_id_unique" UNIQUE("privy_id")
 );
-
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_users_wallet_address" ON "users" ("wallet_address");
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_users_cooldown_until" ON "users" ("cooldown_until");
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "bounties" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"creator_id" integer NOT NULL,
@@ -26,13 +30,19 @@ CREATE TABLE IF NOT EXISTS "bounties" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
-
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_bounties_creator_id" ON "bounties" ("creator_id");
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_bounties_doer_id" ON "bounties" ("doer_id");
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_bounties_status" ON "bounties" ("status");
+--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "bounties" ADD CONSTRAINT "bounties_creator_id_users_id_fk" FOREIGN KEY ("creator_id") REFERENCES "users"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
-
+--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "bounties" ADD CONSTRAINT "bounties_doer_id_users_id_fk" FOREIGN KEY ("doer_id") REFERENCES "users"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION

@@ -134,11 +134,20 @@ MiMo Auto
 - Updated `apps/web/src/app/layout.tsx` to include Privy provider
 - Configured email/social login and wallet connection options
 - Styled with Tailwind CSS following petroleum UI theme
+- **Code Review Fixes Applied:**
+  - Fixed QueryClient creation (now inside component)
+  - Added error boundary for Privy failures
+  - Added loading state for Privy initialization
+  - Added redirect after successful sign-up
+  - Added loading states to all buttons
+  - Added email validation
+  - Added accessibility attributes (aria-labels)
+  - Added error alert role
 
 ### File List
 
 - apps/web/package.json (modified: added Privy dependencies)
-- apps/web/src/components/auth/PrivyProvider.tsx (new)
-- apps/web/src/components/auth/SignUpForm.tsx (new)
+- apps/web/src/components/auth/PrivyProvider.tsx (new: added error boundary, loading state, fixed QueryClient)
+- apps/web/src/components/auth/SignUpForm.tsx (new: added redirect, email validation, accessibility)
 - apps/web/src/app/auth/signup/page.tsx (new)
 - apps/web/src/app/layout.tsx (modified: added Privy provider)

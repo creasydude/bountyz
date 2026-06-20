@@ -1,5 +1,6 @@
 import { Worker, Job } from 'bullmq';
 import { connection } from './queue';
+import { emitBountyUpdate, emitTimerEvent } from './socket-server';
 
 // Bounty timer job data interface
 export interface BountyTimerJobData {
@@ -20,21 +21,29 @@ const bountyTimerWorker = new Worker(
     switch (action) {
       case 'challenge_10m':
         console.log(`[Worker] 10-minute challenge started for bounty ${bountyId}`);
+        emitBountyUpdate(bountyId, 'CHALLENGE_10M', { userId });
+        emitTimerEvent(bountyId, 'challenge_10m', 600000); // 10 minutes in ms
         // TODO: Implement 10-minute challenge logic
         break;
         
       case 'cooldown_6h':
         console.log(`[Worker] 6-hour cooldown started for user ${userId}`);
+        emitBountyUpdate(bountyId, 'COOLDOWN', { userId });
+        emitTimerEvent(bountyId, 'cooldown_6h', 21600000); // 6 hours in ms
         // TODO: Implement 6-hour cooldown logic
         break;
         
       case 'auto_approve_48h':
         console.log(`[Worker] 48-hour auto-approval started for bounty ${bountyId}`);
+        emitBountyUpdate(bountyId, 'AUTO_APPROVE_48H', { userId });
+        emitTimerEvent(bountyId, 'auto_approve_48h', 172800000); // 48 hours in ms
         // TODO: Implement 48-hour auto-approval logic
         break;
         
       case 'safety_lock_96h':
         console.log(`[Worker] 96-hour safety lock started for bounty ${bountyId}`);
+        emitBountyUpdate(bountyId, 'SAFETY_LOCK', { userId });
+        emitTimerEvent(bountyId, 'safety_lock_96h', 345600000); // 96 hours in ms
         // TODO: Implement 96-hour safety lock logic
         break;
         

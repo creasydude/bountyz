@@ -2,6 +2,7 @@ import { bountyTimersQueue, closeQueue, getQueueMetrics, queueScheduler } from '
 import express from 'express';
 import { getHealthStatus } from './health';
 import { bountyTimerWorker } from './worker';
+import { startSocketServer, stopSocketServer } from './socket-server';
 
 console.log('bountyZ Worker starting...');
 
@@ -19,6 +20,9 @@ async function gracefulShutdown(signal: string) {
   console.log(`\nReceived ${signal}. Starting graceful shutdown...`);
   
   try {
+    // Stop socket server
+    await stopSocketServer();
+    
     // Close queue and connection
     await closeQueue();
     console.log('✓ Worker shut down gracefully');
@@ -74,6 +78,9 @@ async function initWorker() {
     app.listen(PORT, () => {
       console.log(`✓ Health endpoint listening on port ${PORT}`);
     });
+    
+    // Start Socket.io server
+    await startSocketServer();
     
     console.log('\n✅ bountyZ Worker is ready!');
     console.log('Waiting for jobs...');

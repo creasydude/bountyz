@@ -3,6 +3,7 @@ import express from 'express';
 import { getHealthStatus } from './health';
 import { bountyTimerWorker } from './worker';
 import { startSocketServer, stopSocketServer } from './socket-server';
+import profileRoutes from './routes/profile';
 
 console.log('bountyZ Worker starting...');
 
@@ -51,6 +52,12 @@ process.on('unhandledRejection', (reason) => {
 // Create Express app for health endpoint
 const app = express();
 const PORT = process.env.WORKER_PORT || 3001;
+
+// Middleware
+app.use(express.json());
+
+// API Routes
+app.use('/api/profile', profileRoutes);
 
 // Health check endpoint
 app.get('/health', async (req, res) => {

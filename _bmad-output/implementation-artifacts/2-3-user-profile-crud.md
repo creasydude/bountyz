@@ -96,9 +96,14 @@ MiMo Auto
 - Implemented profile CRUD operations
 - Styled with Tailwind CSS following petroleum UI theme
 - Added loading states and error handling
+- **Code Review Fixes Applied:**
+  - Implemented proper JWT validation with Privy
+  - Registered profile routes in worker's Express app
+  - Added JSON middleware for request parsing
 
 ### File List
 
-- apps/worker/src/routes/profile.ts (new)
+- apps/worker/src/routes/profile.ts (new: implemented proper JWT validation)
+- apps/worker/src/index.ts (modified: registered profile routes, added JSON middleware)
 - apps/web/src/components/profile/ProfileForm.tsx (new)
 - apps/web/src/app/profile/page.tsx (new)

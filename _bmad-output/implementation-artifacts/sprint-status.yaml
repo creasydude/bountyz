@@ -1,5 +1,5 @@
 # generated: 2026-06-19
-# last_updated: 2026-06-19T24:00:00Z
+# last_updated: 2026-06-19T25:00:00Z
 # project: bountyz
 # project_key: NOKEY
 # tracking_system: file-system
@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-06-19
-last_updated: 2026-06-19T24:00:00Z
+last_updated: 2026-06-19T25:00:00Z
 project: bountyz
 project_key: NOKEY
 tracking_system: file-system
@@ -54,8 +54,8 @@ development_status:
   # Epic 2: Authentication & User Management
   epic-2: in-progress
   2-1-privy-sign-up-flow-web3-wallet-optional: done
-  2-2-privy-login-session-jwt: review
-  2-3-user-profile-crud: backlog
+  2-2-privy-login-session-jwt: done
+  2-3-user-profile-crud: review
   2-4-secure-key-management-setup: backlog
   2-5-auth-middleware-for-protected-routes: backlog
   epic-2-retrospective: optional
